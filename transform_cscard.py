@@ -4,7 +4,7 @@ import csv
 csvfile = open("Most-Recent-Cohorts-All-Data-Elements.csv","rb")
 csvout = open("Most-Recent-Cohorts-All-Data-Elements_transformed.csv","wb")
 csvout_name = "Most-Recent-Cohorts-All-Data-Elements_transformed.csv"
-csvfinal = "Final_Most-Recent-Cohorts-All-Data-Elements.csv","wb"
+csvfinal = "Final_Most-Recent-Cohorts-All-Data-Elements.csv"
 
 reader = csv.reader(csvfile)
 writer = csv.writer(csvout)
@@ -18,13 +18,13 @@ def transform_csv():
 	    writer.writerow(row)
 	    count+=1;
 	
-	writer.close()
-	val = -1* (count - 1600)
+	csvout.close()
+	#val = -1* (count - 1600)
 	with open(csvout_name,"r") as fin:
 		with open(csvfinal,"w") as fout:
 			w=csv.writer(fout)
 			for row in csv.reader(fin):
-				w.writerow(row[:val])
+				w.writerow(row[:-143])
 	
 
 
