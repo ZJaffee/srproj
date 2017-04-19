@@ -8,20 +8,24 @@ reader = csv.reader(csvfile)
 writer = csv.writer(csvout)
 
 def transform_csv():
+	count = 0
 	for row in reader:
 	    for i in xrange(len(row)):
 	    	if row[i] == "PrivacySuppressed":
 	    		row[i] = "NULL"
-	    	if i >= 1600:
-	    		row[i] = ""
-	    writer.writerow(row) 
+	    	count+=1
+	    writer.writerow(row)
+	while count >= 1600:
+		with open(csvfile,"r") as fin:
+		    with open(csvout,"w") as fout:
+		        w = csv.writer(fout)
+		        for row in csv.reader(fin):
+		            w.writerow(row[:-1])
+		count-=1
 
 
 if __name__ == "__main__":
     transform_csv()
-
-
-
 
 
 
