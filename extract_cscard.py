@@ -28,7 +28,7 @@ def extract_csv():
 			# architecture built to be able to modify this stage as needed.
 			# This is where we would add other features such as unique constraints, ect.
 			if(column_name[i] == "ZIP"):
-				data_type.append(unicode("varchat(10)"))
+				data_type.append(unicode("VARCHAR(10)"))
 			else:
 				data_type.append(guess_data_type(val))
 			i+=1
