@@ -36,7 +36,7 @@ def extract_csv():
 	f = open('schema_cscard.sql', 'w')
 	f.truncate()
 	f.write("CREATE TABLE college_scorecard ( \n")
-	for i in xrange(len(column_name)):
+	for i in xrange(1600):
 		feature = "  %s %s,\n"%(column_name[i],data_type[i])
 		f.write(feature)
 	f.write("CONSTRAINT persons_pkey PRIMARY KEY (UNITID) )")

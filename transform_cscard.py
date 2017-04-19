@@ -12,6 +12,8 @@ def transform_csv():
 	    for i in xrange(len(row)):
 	    	if row[i] == "PrivacySuppressed":
 	    		row[i] = "NULL"
+	    	if i >= 1600:
+	    		row[i] = ""
 	    writer.writerow(row) 
 
 
