@@ -19,13 +19,13 @@ def transform_csv():
 	    count+=1;
 	
 	writer.close()
-	while count >= 1600:
-		with open(csvout_name,"r") as fin:
-			with open(csvfinal,"w") as fout:
-				w=csv.writer(fout)
-	    		for row in csv.reader(fin):
-	        		w.writerow(row[:-1])
-		count-=1
+	val = -1* (count - 1600)
+	with open(csvout_name,"r") as fin:
+		with open(csvfinal,"w") as fout:
+			w=csv.writer(fout)
+			for row in csv.reader(fin):
+				w.writerow(row[:val])
+	
 
 
 
